@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animated Stock Charts */
+.charts-container {
+  width: 800px;
+  height: 500px;
+  position: relative;
+  opacity: 0.5;
+}
+
+.chart {
+  position: relative;
+  width: 220px;
+  height: 150px;
+  border: 2px solid rgba(239, 68, 68, 0.6);
+  border-radius: 12px;
+  background: rgba(239, 68, 68, 0.08);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(239, 68, 68, 0.15);
+}
+
+.chart-1 {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  animation: floatChart1 8s ease-in-out infinite;
+}
+
+.chart-2 {
+  position: absolute;
+  top: 120px;
+  right: 60px;
+  animation: floatChart2 10s ease-in-out infinite 2s;
+}
+
+.chart-3 {
+  position: absolute;
+  bottom: 60px;
+  left: 280px;
+  animation: floatChart3 12s ease-in-out infinite 4s;
+}
+
+/* Chart Line Animation */
+.chart-line {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  right: 10px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 1), transparent);
+  animation: drawLine 3s ease-in-out infinite;
+}
+
+.chart-line-2 {
+  background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 1), transparent);
+  animation-delay: 1s;
+}
+
+/* Chart Bars */
+.chart-bars {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.bar {
+  width: 12px;
+  background: rgba(239, 68, 68, 0.8);
+  border-radius: 3px;
+  animation: growBar 2s ease-in-out infinite;
+}
+
+.bar-1 { height: 40px; animation-delay: 0s; }
+.bar-2 { height: 60px; animation-delay: 0.2s; }
+.bar-3 { height: 35px; animation-delay: 0.4s; }
+.bar-4 { height: 65px; animation-delay: 0.6s; }
+.bar-5 { height: 45px; animation-delay: 0.8s; }
+
+/* Chart Dots */
+.chart-dots {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 1);
+  animation: pulseDot 2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+.dot-1 { animation-delay: 0s; }
+.dot-2 { animation-delay: 0.3s; }
+.dot-3 { animation-delay: 0.6s; }
+.dot-4 { animation-delay: 0.9s; }
+
+/* Candlesticks */
+.candlestick {
+  position: absolute;
+  bottom: 20px;
+  width: 16px;
+  background: rgba(239, 68, 68, 0.9);
+  border-radius: 3px;
+  animation: flickerCandle 3s ease-in-out infinite;
+}
+
+.candlestick-1 { left: 25px; height: 50px; animation-delay: 0s; }
+.candlestick-2 { left: 60px; height: 40px; animation-delay: 0.5s; background: rgba(34, 197, 94, 0.9); }
+.candlestick-3 { left: 95px; height: 60px; animation-delay: 1s; }
+.candlestick-4 { left: 130px; height: 45px; animation-delay: 1.5s; background: rgba(34, 197, 94, 0.9); }
+
+/* Animations */
+@keyframes floatChart1 {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes floatChart2 {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes floatChart3 {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes drawLine {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes growBar {
+  0% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0.3);
+  }
+}
+
+@keyframes pulseDot {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes flickerCandle {
+  0% {
+    opacity: 0.6;
+    transform: scaleY(1);
+  }
+  33% {
+    opacity: 1;
+    transform: scaleY(1.1);
+  }
+  66% {
+    opacity: 0.8;
+    transform: scaleY(0.9);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scaleY(1);
+  }
+}
